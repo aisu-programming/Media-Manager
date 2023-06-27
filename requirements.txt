@@ -1,0 +1,5 @@
+python-dotenv
+# tkinter
+Pillow
+opencv-python
+moviepy
