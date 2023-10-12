@@ -276,9 +276,19 @@ def reformat_files():
     result = messagebox.askyesno("確認", "您確定要格式化檔案名稱嗎？")
     if result:
         folder_path = tree.item(tree.focus(), "values")[0]
+        file_paths = sorted(list(pathlib.Path(folder_path).glob("*[jJpPgG]*[gGfF]")))
+        for file_id, file_path in enumerate(file_paths):
+            new_filename = f"temp_{file_id+1}." + str(os.path.basename(file_path)).split('.')[-1].lower()
+            new_filepath = os.path.join(os.path.dirname(file_path), new_filename)
+            os.rename(file_path, new_filepath)
         file_paths = sorted(list(pathlib.Path(folder_path).glob("*.[jJpPgG]*[gGfF]")))
         for file_id, file_path in enumerate(file_paths):
             new_filename = f"P ({file_id+1:03})." + str(os.path.basename(file_path)).split('.')[-1].lower()
+            new_filepath = os.path.join(os.path.dirname(file_path), new_filename)
+            os.rename(file_path, new_filepath)
+        file_paths = sorted(list(pathlib.Path(folder_path).glob("*.[aAmM]*[iIvV4]")))
+        for file_id, file_path in enumerate(file_paths):
+            new_filename = f"temp_{file_id+1}." + str(os.path.basename(file_path)).split('.')[-1].lower()
             new_filepath = os.path.join(os.path.dirname(file_path), new_filename)
             os.rename(file_path, new_filepath)
         file_paths = sorted(list(pathlib.Path(folder_path).glob("*.[aAmM]*[iIvV4]")))
