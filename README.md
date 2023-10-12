@@ -9,7 +9,7 @@ A tool enables you to arrange your data by providing images and video screenshot
    `.\ENV_NAME\Scripts\activate`
 3. Install packages
 
-   `pip install -r requirements.txt`
+   `pip install -r .\requirements.txt`
 
 ## Configuration
 Rename _.env-example_ to _.env_ and modify the ROOT_DIRECTORY variable to what you want
